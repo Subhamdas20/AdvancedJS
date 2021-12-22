@@ -1,20 +1,17 @@
 
 const Login = (name) => {
-  return new Promise(resolve => {
+  return new Promise((resolve,reject) => {
     setTimeout(() => {
-
       const authorisation = true
       if (authorisation == true) {
         resolve("Login success");
-      }
+      }else reject("Invalid authorization")
     },1000)
   })
 }
 const addToCart = (product_name) => {
   return new Promise((resolve, reject) => {
-
     setTimeout(() => {
-
       if (product_name == "tv")
         resolve(`${product_name} added to cart`)
       else reject("Product not available")
