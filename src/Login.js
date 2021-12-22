@@ -1,20 +1,36 @@
 
-var promise = new Promise(function(resolve, reject) {
-  const authorisation = true
+const Login = (name) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
 
-  if(authorisation == true) {
-    resolve();
-  } else {
-    reject();
+      const authorisation = true
+      if (authorisation == true) {
+        resolve("Login success");
+      }
+    },1000)
+  })
+}
+const addToCart = (product_name) => {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+
+      if (product_name == "tv")
+        resolve(`${product_name} added to cart`)
+      else reject("Product not available")
+    }, 2000)
+  })
+};
+
+let order = async () => {
+  try {
+    let log =  await Login("subham");
+    console.log(log)
+    let product = await addToCart("tv")
+    console.log(product)
+  } catch (error) {
+    console.log(error)
   }
-});
-   
-promise.
-    then(()=> {
-        console.log('login success');
-    }).
-    catch(function () {
-        console.log('Some error has occurred');
-    });
-
+}
+order()
 
