@@ -1,26 +1,20 @@
-const Login = (email,name,callback)=>{
- setTimeout(()=>{
-    console.log("Login successful")
-    callback("Tv")
- },3000)
-}
 
-const addToCart=(product_name,callback)=>{
-    setTimeout(()=>{
-        console.log(`${product_name} added to cart`)
-        callback(999)
-    },2000)
-}
+var promise = new Promise(function(resolve, reject) {
+  const authorisation = true
 
-const placeOrder = (price)=>{
-    setTimeout(()=>{
-        console.log(`Order placed worth ${price}RS`)
-    })
-}
+  if(authorisation == true) {
+    resolve();
+  } else {
+    reject();
+  }
+});
+   
+promise.
+    then(()=> {
+        console.log('login success');
+    }).
+    catch(function () {
+        console.log('Some error has occurred');
+    });
 
-const order = Login("subham20.sd@gmail.com","subham",(product)=>{
-    addToCart(product,(price)=>{
-        placeOrder(price)
-    })
-})
 
